@@ -5,6 +5,13 @@ from env import host, user, password
 
 ###################### Acquire Telco Churn Data ######################
 
+def get_connection(db, user=user, host=host, password=password):
+    '''
+    This function uses my info from my env file to
+    create a connection url to access the Codeup db.
+    '''
+    return f'mysql+pymysql://{user}:{password}@{host}/{db}'
+
 def new_telco_data():
     '''
     This function reads the telco data from the Codeup db into a df,
