@@ -9,6 +9,13 @@ from sklearn.preprocessing import StandardScaler
 
 ###################### Prepare Telco Churn Data ######################
 
+def scale(train, validate, test):
+    scaler = MinMaxScaler()
+    train[['tenure', 'monthly_charges', 'total_charges']] = scaler.fit_transform(train[['tenure', 'monthly_charges', 'total_charges']])
+    validate[['tenure', 'monthly_charges', 'total_charges']] = scaler.transform(validate[['tenure', 'monthly_charges', 'total_charges']])
+    test[['tenure', 'monthly_charges', 'total_charges']]= scaler.transform(test[['tenure', 'monthly_charges', 'total_charges']])
+    return train, validate, test
+
 def train_valid_test(df):
     train_validate, test = train_test_split(df, test_size = .2, random_state = 123, stratify = df.churn)
     train, validate = train_test_split(train_validate, test_size = .3, random_state = 123, stratify = train_validate.churn)
@@ -40,34 +47,43 @@ def prep_telco_data(df):
     ## Add dummy variables as new columns in dataframe and rename them, delete origional
     #multiple = df.online_security.str.get_dummies()
     df["online_security_cc"] = df["online_security"].astype('category')
-    df["nline_security_cc"] = df["nline_security_cc"].cat.codes
+    df["online_security_cc"] = df["online_security_cc"].cat.codes
     #df = pd.concat([df, multiple], axis=1)
     #df.rename(columns = {'No': 'no_online_security', 'Yes': 'yes_online_security'}, inplace = True)
     #df.drop(columns = ['online_security'], inplace = True)
     ## Add dummy variables as new columns in dataframe and rename them, delete origional
     #multiple = df.online_backup.str.get_dummies()
-    
+    df["online_backup_cc"] = df["online_backup"].astype('category')
+    df["online_backup_cc"] = df["online_backup_cc"].cat.codes
     #df = pd.concat([df, multiple], axis=1)
     #df.rename(columns = {'No': 'no_online_backup', 'Yes': 'yes_online_backup'}, inplace = True)
     #df.drop(columns = ['online_backup'], inplace = True)
     ## Add dummy variables as new columns in dataframe and rename them, delete origional
     #multiple = df.device_protection.str.get_dummies()
+    df["device_protection_cc"] = df["device_protection"].astype('category')
+    df["device_protection_cc"] = df["device_protection_cc"].cat.codes
     #df = pd.concat([df, multiple], axis=1)
     #df.rename(columns = {'No': 'no_device_protection', 'Yes': 'yes_device_protection'}, inplace = True)
     #df.drop(columns = ['device_protection'], inplace = True)
     ## Add dummy variables as new columns in dataframe and rename them, delete origional
     #multiple = df.tech_support.str.get_dummies()
+    df["tech_support_cc"] = df["tech_support"].astype('category')
+    df["tech_support_cc"] = df["tech_support_cc"].cat.codes
     #df = pd.concat([df, multiple], axis=1)
     #df.rename(columns = {'No': 'no_tech_support', 'Yes': 'yes_tech_support'}, inplace = True)
     #df.drop(columns = ['tech_support'], inplace = True)
     ## Add dummy variables as new columns in dataframe and rename them, delete origional
     #multiple = df.streaming_tv.str.get_dummies()
+    df["streaming_tv_cc"] = df["streaming_tv"].astype('category')
+    df["streaming_tv_cc"] = df["streaming_tv_cc"].cat.codes
     #df = pd.concat([df, multiple], axis=1)
     #df.rename(columns = {'No': 'no_streaming_tv', 'Yes': 'yes_streaming_tv'}, inplace = True)
     #df.drop(columns = ['streaming_tv', 'No internet service'], inplace = True)
     #df.drop(columns = ['No internet service'], inplace = True)
     ## Add dummy variables as new columns in dataframe and rename them, delete origional
     #multiple = df.streaming_movies.str.get_dummies()
+    df["streaming_movies_cc"] = df["streaming_movies"].astype('category')
+    df["streaming_movies_cc"] = df["streaming_movies_cc"].cat.codes
     #df = pd.concat([df, multiple], axis=1)
     #df.rename(columns = {'No': 'no_streaming_movies', 'Yes': 'yes_streaming_movies'}, inplace = True)
     #df.drop(columns = ['streaming_movies'], inplace = True)
@@ -93,4 +109,5 @@ def prep_telco_data(df):
     df['total_charges'] = pd.to_numeric(df['total_charges'],errors='coerce')
     #split data
     train, validate, test = train_valid_test(df)
+    train, validate, test = scale(train, validate, test)
     return train, validate, test
