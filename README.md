@@ -4,38 +4,46 @@
 ******************************************************************************************************************************************************
 ### **Goals**
 
-My goal for this project is to produce a model that will predict if a customer will leave Telco.  This model will be traed on with in the first 8 months of their serivce. A CSV of individuals likely to churn will be provided to the team for targed marketing intervention.  Using machine learning to classifiy indiduals likely to churn will reduce churn and increase customer satisfaction and profit margin.
+My goal for this project is to produce a model that will predict if a customer will leave Telco.  This model will be trained on 72 months of customer data, looking specifically at _____ as significant drivers of churn. A CSV of individuals likely to churn will be provided at the end of the project.   
 ******************************************************************************************************************************************************
 ### **Background**
--text
+From http://www.dbmarketing.com/telecom/churnreduction.html, by Authur Hughes
+
+-  As of 9/20/2020 annual churn rates for telecommunications companies average between 10 and 67 percent.
+
+ - Roughly 75 percent of the subscribers signing up with a new carrier every year are coming from another wireless provider and hence are already churners. 
+
+ - Industry retention surveys have shown that while price and product are important, most people leave any service because of dissatisfaction with the way they are treated.
 ******************************************************************************************************************************************************
 ### **Acknowledgement**
--text
+If you use this dataset in your research, please credit the authors
+
+Codeup - https://codeup.com/
 ******************************************************************************************************************************************************
 ## **Data Dictionary**
--text
+- Churn:
+
+- DSL:
+
+- Cable Internet:
+
+
 ******************************************************************************************************************************************************
-## **Initial Hypotheses and Thoughs**
-- text
+## **Initial Thoughs and Hypotheses**
 ******************************************************************************************************************************************************
 ### **Thoughts**
-- Overall Churn Rate 26% (Over 72 Months)
+- Overall Churn Rate 26% (Over 6 Years or 72 Months)
 - Churn Rate > 50% for first 8 months of service
-- Bilding a model on Customer Characteristic of First 8 Months Will Help Perdict Churn
+- Monthly Churn Rate Decreases Over Time (Month 1: 47%, Month 2: 14%, Month 3: 12%......)
 
 ### **Hypotheses**
-
-- Two models
-    - A. Customer data where churn <= 8 months
-    - B. Total Customer data 
-
-- Hypothesis = 
-    - A. Customers who have high levels of churn will produce a better model
-    - B. Internet service type is a large driver of churn
+- Hypotheses
+    - A. Internet service type is a large driver of churn
+    - B. Individuals without tech support are a large driver of churn
 
 - Statistical Tests:
-    - A. Paired T-Test - Compaire predictive ratings between subgroups
-    - B. Chi Squared Test For Independence - Independence between internet services
+    - A. Chi Squared Test For Independence - Independence between internet services
+    - B. 2 Sample T-Test - Comparing churn between users with tech support and those without
 ******************************************************************************************************************************************************
 ### **Project Plan: Breaking it Down**
 
