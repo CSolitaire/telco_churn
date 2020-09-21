@@ -38,12 +38,12 @@ Codeup - https://codeup.com/
 
 ### **Hypotheses**
 - Hypotheses
-    - A. Internet service type is a large driver of churn
-    - B. Individuals without tech support are a large driver of churn
+    - A. Association between internet service type and churn
+    - B. Association between lack of tech support and churn
 
 - Statistical Tests:
-    - A. Chi Squared Test For Independence - Independence between internet services
-    - B. 2 Sample T-Test - Comparing churn between users with tech support and those without
+    - A. Chi Squared Test For Independence - Independence between churn and internet services
+    - B. Chi Squared Test For Independence - Independence between churn and tech support
 ******************************************************************************************************************************************************
 ### **Project Plan: Breaking it Down**
 

@@ -35,6 +35,8 @@ def prep_telco_data_model(df):
     df["gender_cc"] = df["gender_cc"].cat.codes
     #gender = df.gender.str.get_dummies()
     #df = pd.concat([df, gender], axis=1)
+    df["payment_type_cc"] = df["payment_type"].astype('category')
+    df["payment_type_cc"] = df["payment_type_cc"].cat.codes
     #df.rename(columns = {'Female': 'is_female', 'Male': 'is_male'}, inplace = True)
     #df.drop(columns = ['gender'], inplace = True)
     ## Add dummy variables as new columns in dataframe and rename them, delete origional
@@ -88,22 +90,34 @@ def prep_telco_data_model(df):
     #df.rename(columns = {'No': 'no_streaming_movies', 'Yes': 'yes_streaming_movies'}, inplace = True)
     #df.drop(columns = ['streaming_movies'], inplace = True)
     # Add dummy variables as new columns in dataframe and rename them, delete origional
-    multiple = df.contract_type.str.get_dummies()
-    df = pd.concat([df, multiple], axis=1)
-    df.rename(columns = {'Month-to-month': 'month_to_month_contract', 'One year': 'one_year_contract', 'Two year': 'two_year_contract'}, inplace = True)
+    df["contract_type_cc"] = df["contract_type"].astype('category')
+    df["contract_type_cc"] = df["contract_type_cc"].cat.codes
+    #multiple = df.contract_type.str.get_dummies()
+    #df = pd.concat([df, multiple], axis=1)
+    #df.rename(columns = {'Month-to-month': 'month_to_month_contract', 'One year': 'one_year_contract', 'Two year': 'two_year_contract'}, inplace = True)
     #df.drop(columns = ['contract_type'], inplace = True)
     ## Add dummy variables as new columns in dataframe and rename them, delete origional
+    multiple = df.payment_type.str.get_dummies()
+    df = pd.concat([df, multiple], axis=1)
+    df.rename(columns = {'Bank transfer (automatic)': 'bank_transfer_auto', 'Credit card (automatic)': 'credit_card_auto', 'Electronic check': 'e_check', 'Mailed check': 'mail_check'}, inplace = True)
     #multiple = df.internet_service_type.str.get_dummies()
     #df = pd.concat([df, multiple], axis=1)
     #df.rename(columns = {'DSL': 'dsl', 'Fiber optic': 'fiber_optic'}, inplace = True)
     # Internet Service Type
-    df['internet_service_type'] = df.internet_service_type != 'None'
-    result = df['internet_service_type'].astype(int)
-    df['internet_service_type'] = result
+    multiple = df.contract_type.str.get_dummies()
+    df = pd.concat([df, multiple], axis=1)
+    df.rename(columns = {'Month-to-month': 'month_to_month_contract', 'One year': 'one_year_contract', 'Two year': 'two_year_contract'}, inplace = True)
+    #
+    df["internet_service_type_cc"] = df["internet_service_type"].astype('category')
+    df["internet_service_type_cc"] = df["internet_service_type_cc"].cat.codes
     # Internet serivce
     df['internet_service'] = df.internet_service_type != 'None'
     result = df['internet_service'].astype(int)
     df['internet_service'] = result
+    # Dummies
+    multiple = df.internet_service_type.str.get_dummies()
+    df = pd.concat([df, multiple], axis=1)
+    df.rename(columns = {'DSL': 'dsl', 'Fiber optic': 'fiber_optic'}, inplace = True)
     #df.drop(columns = ['internet_service_type','None'], inplace = True)
     ## Add dummy variables as new columns in dataframe and rename them, delete origional
     #multiple = df.payment_type.str.get_dummies()
@@ -133,6 +147,12 @@ def prep_telco_data_explore(df):
     df["gender_cc"] = df["gender_cc"].cat.codes
     #gender = df.gender.str.get_dummies()
     #df = pd.concat([df, gender], axis=1)
+    df["payment_type_cc"] = df["payment_type"].astype('category')
+    df["payment_type_cc"] = df["payment_type_cc"].cat.codes
+    # Need Dummies Also
+    multiple = df.payment_type.str.get_dummies()
+    df = pd.concat([df, multiple], axis=1)
+    df.rename(columns = {'Bank transfer (automatic)': 'bank_transfer_auto', 'Credit card (automatic)': 'credit_card_auto', 'Electronic check': 'e_check', 'Mailed check': 'mail_check'}, inplace = True)
     #df.rename(columns = {'Female': 'is_female', 'Male': 'is_male'}, inplace = True)
     #df.drop(columns = ['gender'], inplace = True)
     ## Add dummy variables as new columns in dataframe and rename them, delete origional
@@ -191,9 +211,10 @@ def prep_telco_data_explore(df):
     df.rename(columns = {'Month-to-month': 'month_to_month_contract', 'One year': 'one_year_contract', 'Two year': 'two_year_contract'}, inplace = True)
     #df.drop(columns = ['contract_type'], inplace = True)
     ## Add dummy variables as new columns in dataframe and rename them, delete origional
-    #multiple = df.internet_service_type.str.get_dummies()
-    #df = pd.concat([df, multiple], axis=1)
-    #df.rename(columns = {'DSL': 'dsl', 'Fiber optic': 'fiber_optic'}, inplace = True)
+    multiple = df.internet_service_type.str.get_dummies()
+    df = pd.concat([df, multiple], axis=1)
+    df.rename(columns = {'DSL': 'dsl', 'Fiber optic': 'fiber_optic'}, inplace = True)
+    #
     df['internet_service'] = df.internet_service_type != 'None'
     result = df['internet_service'].astype(int)
     df['internet_service'] = result
