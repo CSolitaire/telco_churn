@@ -23,7 +23,7 @@ def train_valid_test(df):
 
 def prep_telco_data_explore(df):
     # Delete columns 'customer_id', contract_type_id, internet_service_type_id, payment_type_id    
-    df.drop(columns = ['customer_id','contract_type_id','internet_service_type_id', 'payment_type_id'], inplace = True)
+    df.drop(columns = ['contract_type_id','internet_service_type_id', 'payment_type_id'], inplace = True)
     # Replace partner, dependents, churn, phone_service, paperless billing, with boolean value
     df.partner.replace(['Yes', 'No'], [1,0], inplace = True)
     df.dependents.replace(['Yes', 'No'], [1,0], inplace = True)
@@ -137,7 +137,7 @@ def prep_telco_data_explore(df):
 
 def prep_telco_data_model(df):
     # Delete redundent columns 'customer_id', contract_type_id, internet_service_type_id, payment_type_id    
-    df.drop(columns = ['customer_id','contract_type_id','internet_service_type_id', 'payment_type_id'], inplace = True)
+    df.drop(columns = ['contract_type_id','internet_service_type_id', 'payment_type_id'], inplace = True)
     # Replace partner, dependents, churn, phone_service, paperless billing, with boolean value
     df.partner.replace(['Yes', 'No'], [1,0], inplace = True)
     df.dependents.replace(['Yes', 'No'], [1,0], inplace = True)
