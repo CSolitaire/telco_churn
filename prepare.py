@@ -96,6 +96,11 @@ def prep_telco_data_model(df):
     #multiple = df.internet_service_type.str.get_dummies()
     #df = pd.concat([df, multiple], axis=1)
     #df.rename(columns = {'DSL': 'dsl', 'Fiber optic': 'fiber_optic'}, inplace = True)
+    # Internet Service Type
+    df['internet_service_type'] = df.internet_service_type != 'None'
+    result = df['internet_service_type'].astype(int)
+    df['internet_service_type'] = result
+    # Internet serivce
     df['internet_service'] = df.internet_service_type != 'None'
     result = df['internet_service'].astype(int)
     df['internet_service'] = result
