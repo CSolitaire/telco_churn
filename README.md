@@ -2,7 +2,7 @@
 ******************************************************************************************************************************************************
 ## **About the Project**
 ******************************************************************************************************************************************************
-### **Goals**
+### **Goal**
 
 My goal for this project is to produce a model that will predict if a customer will leave Telco.  This model will be trained on 72 months of customer data, looking specifically at contract type, internet service, and tenure as significant drivers of churn. A CSV of individuals likely to churn will be provided at the end of the project.   
 ******************************************************************************************************************************************************
@@ -30,9 +30,9 @@ Codeup - https://codeup.com/
 
 - **Hypothesis Testing:** An act in statistics whereby an analyst tests an assumption regarding a population parameter.
 
-- **Null Hypothesis $H_{0}$ :** A type of hypothesis used in statistics that proposes that there is no difference between certain characteristics of a population.
+- **Null Hypothesis:** A type of hypothesis used in statistics that proposes that there is no difference between certain characteristics of a population.
 
-- **Alternative Hypothesis $H_{a}$ :** A type of hypothesis used in hypothesis testing that is contrary to the null hypothesis.
+- **Alternative Hypothesis:** A type of hypothesis used in hypothesis testing that is contrary to the null hypothesis.
 
 - **DSL:** "Digital Subscriber Line" DSL is a communications medium used to transfer digital signals over standard telephone lines.
 
@@ -74,26 +74,50 @@ Codeup - https://codeup.com/
 ## **Initial Thoughs and Hypotheses**
 ******************************************************************************************************************************************************
 ### **Thoughts**
-- Overall Churn Rate 26% (Over 6 Years or 72 Months)
-- Churn Rate > 50% for first 8 months of service
-- Monthly Churn Rate Decreases Over Time (Month 1: 47%, Month 2: 14%, Month 3: 12%......)
+- Overall churn rate 26% (over 6 years or 72 months)
+- Churn rate > 50% for first 8 months of service
+- Monthly churn rate decreases over time (month 1: 47%, month 2: 14%, month 3: 12%......)
+- Internet service is large negative and positive driver of churn
 
 ### **Hypotheses**
 - Hypotheses
-    - A. Association between internet service type and churn
-    - B. Association between lack of tech support and churn
+    - A. Customers with internet service are more likely to churn 
+    - B. Customers with internet service and tech support are less likely to churn
 
 - Statistical Tests:
-    - A. Chi Squared Test For Independence - Independence between churn and internet services
-    - B. Chi Squared Test For Independence - Independence between churn and tech support
+    - A. Chi Squared Test For Independence - Independence between churn and internet services (DSL and Fiber) among internet subscribers
+    - B. Chi Squared Test For Independence - Independence between churn and tech support (no support, online support) among internet subscribers
 ******************************************************************************************************************************************************
 ### **Project Plan: Breaking it Down**
 
 #### **acquire.py**
- - text
+- Data was acquired from MySQL telco_churn database hosted by codeup.com
 
 #### **prepare.py**
- - text
+ - prep_telco_data_explore (Data used for exploration and hypothesis testing)
+   - Delete redundent columns: contract_type_id, internet_service_type_id, payment_type_id  
+   - Replace partner, dependents, churn, phone_service, paperless billing, with boolean value
+   - Change gender, payment_type, multiple_lines, online_security, online_backkup, device_protection, tech_support, streaming_tv, streaming_movies, contract_type, internet_service_type to categorical category codes
+   - Add dummy variables as new columns in dataframe and rename them for payment_type, contract_type, internet_service_type 
+   - Create new boolean column for internet_service
+   - Change total_charges to a numeric variable
+   - Replace 18 NaN values in total_charges with 0, because they represent customers who are new and are yet to have a total_charge
+   - Create a new feature called tenure_years
+   - Return df
+
+ - prep_telco_data_model (Scaled data used for modeling)
+   - prep_telco_data_explore (Data used for exploration and hypothesis testing)
+   - Delete redundent columns: contract_type_id, internet_service_type_id, payment_type_id  
+   - Replace partner, dependents, churn, phone_service, paperless billing, with boolean value
+   - Change gender, payment_type, multiple_lines, online_security, online_backkup, device_protection, tech_support, streaming_tv, streaming_movies, contract_type, internet_service_type to categorical category codes
+   - Add dummy variables as new columns in dataframe and rename them for payment_type, contract_type, internet_service_type 
+   - Create new boolean column for internet_service
+   - Change total_charges to a numeric variable
+   - Replace 18 NaN values in total_charges with 0, because they represent customers who are new and are yet to have a total_charge
+   - Create a new feature called tenure_years
+   - Split data: train, validate, test
+   - Scale data
+   - Return train, validate, test
 
 #### **Explore**
 - text
