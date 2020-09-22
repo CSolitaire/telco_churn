@@ -120,13 +120,75 @@ Codeup - https://codeup.com/
    - Return train, validate, test
 
 #### **Explore**
-- text
+- Plot correlation matrix of all variables, identify those most highly correlated to churn
+- Hypothesis testing and evaluation
 
 #### **Model**
-- text
+- Try different algorithms: logistic regression, decision tree, random forest, knn
+- Which features are most influential?
+- Evaluate on train
+- Select top 3 models  
+- Evaluate on validate
+- Select top model
+- Evaluate on Test
+- Report test results
 
 #### **Conclusion**
-- text
+- linear regression model returned 79% accuracy on my test data (20% improvement over baseline (50%))
+- Best model optimized for validate to reduce type II errors (predict no-churn but churn)
+- Recall (51%): Not a great value. It means that when the model predicts a customer will not churn it is only correct 51% of the time
+- Precision (63%): Also a great value. It means that when the model predict a customer will churn it is only correct 63% of the time
+
+#### **Next Steps**
+- Model needs work
+- Need to go back and examine inputs to further optimize for Recall
+- Model is better then the dummy but has a lot be desired
 ******************************************************************************************************************************************************
 ### **How to Reproduce**
-- text
+1. Access Codup MySQL database and generate telco_churn data using following:
+ sql_query = '''
+                select * 
+                from customers as c
+                join contract_types as ct
+                on ct.contract_type_id = c.contract_type_id
+                join internet_service_types as i_s
+                on i_s.internet_service_type_id = c.internet_service_type_id
+                join payment_types as pt
+                on pt.payment_type_id = c.payment_type_id;
+                '''
+2. Execute explore df
+   - prep_telco_data_explore()
+   - visualize data
+   - explore correlations .corr()
+   - select model inputs
+
+3. Execute model df
+   - prep_telco_data_model()
+   - Build and execute logistic regression model
+     - log = LogisticRegression(C=1, random_state = 123, solver='lbfgs')
+   - Build and execute decision tree model
+     - clf = DecisionTreeClassifier(max_depth=10, random_state=123)
+   - Build and execute random forrest model
+     - rf = RandomForestClassifier(bootstrap=True, 
+                            class_weight=None, 
+                            criterion='gini',
+                            min_samples_leaf=10,
+                            n_estimators=100,
+                            max_depth=20, 
+                            random_state=123)
+   - Build and execute knn model
+     - knn = KNeighborsClassifier(n_neighbors=5, weights='uniform')
+   - Fit and evaluate models on train
+     - log.fit(X_train_1, y_train)
+     - clf.fit(X_train_2, y_train)
+     - rf.fit(X_train_3, y_train)
+     - knn.fit(X_train_4, y_train)
+   - Choose top 3 preforming models (optimizing recall)
+   - validate models on unseen data
+     - y_pred_1 = log.predict(X_validate_1)
+     - y_pred_2 = clf.predict(X_validate_2)
+     - y_pred_4 = knn.predict(X_validate_4)
+   - Choose top model (optimizing recall)
+   - Evaluate on test
+     - y_pred_test = log.predict(X_test)
+   - Report findings
