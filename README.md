@@ -4,7 +4,7 @@
 ******************************************************************************************************************************************************
 ### **Goals**
 
-My goal for this project is to produce a model that will predict if a customer will leave Telco.  This model will be trained on 72 months of customer data, looking specifically at _____ as significant drivers of churn. A CSV of individuals likely to churn will be provided at the end of the project.   
+My goal for this project is to produce a model that will predict if a customer will leave Telco.  This model will be trained on 72 months of customer data, looking specifically at contract type, internet service, and tenure as significant drivers of churn. A CSV of individuals likely to churn will be provided at the end of the project.   
 ******************************************************************************************************************************************************
 ### **Background**
 From http://www.dbmarketing.com/telecom/churnreduction.html, by Authur Hughes
@@ -21,12 +21,48 @@ If you use this dataset in your research, please credit the authors
 Codeup - https://codeup.com/
 ******************************************************************************************************************************************************
 ## **Data Dictionary**
-- Churn:
 
-- DSL:
+- **Churn Rate (Churn):** The churn rate, also known as the rate of attrition or customer churn, is the rate at which customers stop doing business with an entity
 
-- Cable Internet:
+- **Heatmap:**A representation of data in the form of a map or diagram in which correlation values are represented as colors
 
+- **Correlation:**The interdependence of variable quantities
+
+- **Hypothesis Testing:**An act in statistics whereby an analyst tests an assumption regarding a population parameter.
+
+- **Null Hypothesis ($H_{0}$):**
+
+- **Alternative Hypothesis($H_{a}$):**
+
+- **DSL:**
+
+- **Cable Internet:**
+
+- **Chi Squared Statistical Test:**
+
+- **P-value:**
+
+- **Fit:**
+
+- **Logistic Regression Model:**
+
+- **Decision Tree Model:**
+
+- **Random Forrest Model:**
+
+- **KNN Model:**
+
+- **Classification Report:**
+
+- **Confusion Matrix:**
+
+- **Accuracy:**
+
+- **Precision:**
+
+- **Recall:**
+
+- **CSV:**
 
 ******************************************************************************************************************************************************
 ## **Initial Thoughs and Hypotheses**
