@@ -22,47 +22,53 @@ Codeup - https://codeup.com/
 ******************************************************************************************************************************************************
 ## **Data Dictionary**
 
-- **Churn Rate (Churn):** The churn rate, also known as the rate of attrition or customer churn, is the rate at which customers stop doing business with an entity
+- **Churn Rate (Churn):** The churn rate, also known as the rate of attrition or customer churn, is the rate at which customers stop doing business with an entity.
 
-- **Heatmap:**A representation of data in the form of a map or diagram in which correlation values are represented as colors
+- **Heatmap:** A representation of data in the form of a map or diagram in which correlation values are represented as colors.
 
-- **Correlation:**The interdependence of variable quantities
+- **Correlation:** The interdependence of variable quantities.
 
-- **Hypothesis Testing:**An act in statistics whereby an analyst tests an assumption regarding a population parameter.
+- **Hypothesis Testing:** An act in statistics whereby an analyst tests an assumption regarding a population parameter.
 
-- **Null Hypothesis ($H_{0}$):**
+- **Null Hypothesis $H_{0}$ :** A type of hypothesis used in statistics that proposes that there is no difference between certain characteristics of a population.
 
-- **Alternative Hypothesis($H_{a}$):**
+- **Alternative Hypothesis $H_{a}$ :** A type of hypothesis used in hypothesis testing that is contrary to the null hypothesis.
 
-- **DSL:**
+- **DSL:** "Digital Subscriber Line" DSL is a communications medium used to transfer digital signals over standard telephone lines.
 
-- **Cable Internet:**
+- **Fiber:** Fiber optic cable is a high-speed data transmission medium. It contains tiny glass or plastic filaments that carry light beams. 
 
-- **Chi Squared Statistical Test:**
+- **Chi Squared Test for Independence:** A statical test that ompares two variables in a contingency table to see if they are related.
 
-- **P-value:**
+- **P-value:** A p value is used in hypothesis testing to help you support or reject the null hypothesis. The p value is the evidence against a null hypothesis. The smaller the p-value, the stronger the evidence that you should reject the null hypothesis.
 
-- **Fit:**
+- **Model Fitting (fit):** A process that involves running an algorithm on data for which the target variable (“labeled” data) is known to produce a machine learning model.
 
-- **Logistic Regression Model:**
+- **Algorithm:** A process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer.   
 
-- **Decision Tree Model:**
+- **Machine Learning Model:** A machine learning model is a file that has been trained (using an algorithm) to recognize certain types of patterns.
 
-- **Random Forrest Model:**
+- **Logistic Regression Algorithm:** A classification algorithm, used when the value of the target variable is categorical in nature.
 
-- **KNN Model:**
+- **Decision Tree Algorithm:** A tree-structured classification algorithm, where internal nodes represent the features of a dataset, branches represent the decision rules and each leaf node represents the outcome.
 
-- **Classification Report:**
+- **Random Forrest Algorithm:** A classification algorithm consisting of many decisions trees. It uses bagging and feature randomness when building each individual tree to try to create an uncorrelated forest of trees whose prediction by committee is more accurate than that of any individual tree.
 
-- **Confusion Matrix:**
+- **KNN Algorithm:** A simple, supervised machine learning algorithm that can be used to solve both classification and regression problems.
 
-- **Accuracy:**
+- **Classification Report:** Used to measure the quality of predictions from a classification algorithm. The report shows the main classification metrics precision, recall and f1-score on a per-class basis.
 
-- **Precision:**
+- **Confusion Matrix:** A table that is often used to describe the performance of a classification model (or "classifier") on a set of test data for which the true values are known.
 
-- **Recall:**
+- **Accuracy:** The ratio of number of correct predictions to the total number of input samples.
 
-- **CSV:**
+- **Precision:** The number of correct positive results divided by the number of positive results predicted by the classifier.
+
+- **Recall:** The number of correct positive results divided by the number of all relevant samples (all samples that should have been identified as positive).
+
+- **f1-score:** The harmonic mean between precision and recall.
+
+- **CSV:** A CSV (comma-separated values) file is a text file that has a specific format which allows data to be saved in a table structured format.
 
 ******************************************************************************************************************************************************
 ## **Initial Thoughs and Hypotheses**
