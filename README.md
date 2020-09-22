@@ -4,7 +4,7 @@
 ******************************************************************************************************************************************************
 ### **Goal**
 
-My goal for this project is to produce a model that will predict if a customer will leave Telco.  This model will be trained on 72 months of customer data, looking specifically at contract type, internet service, and tenure as significant drivers of churn. A CSV of individuals likely to churn will be provided at the end of the project.   
+The goal for this project is to produce a model that will predict if a customer will leave Telco.  This model will be trained on 72 months of customer data, looking specifically at contract type, internet service, and tenure as significant drivers of churn. A CSV of individuals likely to churn will be provided at the end of the project.   
 ******************************************************************************************************************************************************
 ### **Background**
 From http://www.dbmarketing.com/telecom/churnreduction.html, by Authur Hughes
